@@ -33,12 +33,13 @@ def rot(sensor, col_name):
 def plot(xpoints, xlabel, ypoints, ylabel):
     plt.plot(xpoints, ypoints)
 
-    plt.xlabel("Seconds")
-    plt.ylabel("Rot. z")
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
 
     plt.show()
     
 
+# ----- udskift filnavn - lav \\ i stedet for / på windows - start med C: ved windows ----- #
 filename = '/Users/nakn/OneDrive/SDU/sem2/SDI/squatdata.csv'
 col_names = ['period','temp','acc_x','acc_y','acc_z','rot_x','rot_y', 'rot_z']
 
@@ -70,10 +71,12 @@ b_values = {'18': {
                 'rot_z': -0.04425}
     }
 
-#de rækker vi tager udgangspunkt i
+# ----- de rækker vi tager udgangspunkt i ----- #
 start_row = 50
 end_row = len(df) - 50
 
+
+# ----- vælg rot() eller acc() funktion - '18' eller '30' er sensor ----- #
 data = rot('30','z')
 
 i = start_row
@@ -86,5 +89,7 @@ for x in range(end_row - start_row-1):
 xpoints = np.array(seconds)
 ypoints = np.array(data)
 
-plot(xpoints, "Seconds", ypoints, "Rot. z")
+
+# ----- lav flotte labels hvis du vil ----- #
+plot(xpoints, "xlabel", ypoints, "ylabel")
 
