@@ -41,6 +41,7 @@ def plot(xpoints, xlabel, ypoints, ylabel):
 
 # ----- udskift filnavn - lav \\ i stedet for / på windows - start med C: ved windows ----- #
 filename = '/Users/nakn/OneDrive/SDU/sem2/SDI/squatdata.csv'
+filename = '/Volumes/GoogleDrive/.shortcut-targets-by-id/1qxPPnQZ2u0IayHjF9CkcAfbKIhbo59x4/2. Semesterprojekt/Data/18_tibia.csv'
 col_names = ['period','temp','acc_x','acc_y','acc_z','rot_x','rot_y', 'rot_z']
 
 df = pd.read_csv(filename, ',', names=col_names, header=None)
@@ -72,12 +73,12 @@ b_values = {'18': {
     }
 
 # ----- de rækker vi tager udgangspunkt i ----- #
-start_row = 50
-end_row = len(df) - 50
+start_row = 0
+end_row = len(df) - 0
 
 
 # ----- vælg rot() eller acc() funktion - '18' eller '30' er sensor ----- #
-data = rot('30','z')
+data = rot('18','z')
 
 i = start_row
 seconds = [0]
@@ -91,5 +92,4 @@ ypoints = np.array(data)
 
 
 # ----- lav flotte labels hvis du vil ----- #
-plot(xpoints, "xlabel", ypoints, "ylabel")
-
+plot(xpoints, "Seconds", ypoints, "Rot. z")
